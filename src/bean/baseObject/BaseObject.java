@@ -16,6 +16,11 @@ public abstract class BaseObject {
     private ImageView imageView = new ImageView();
 
     public void initElement(Image image,int x, int y) {
+
+        if (x > Game.map.length || y > Game.map[0].length) {
+
+        }
+
         if (Game.map[x][y] != Type.empty) {
         }
 
@@ -24,5 +29,6 @@ public abstract class BaseObject {
         imageView.setImage(image);
         imageView.setX(x * mappingValue);
         imageView.setY(y * mappingValue);
+        Game.rootNode.add(imageView);
     };
 }
