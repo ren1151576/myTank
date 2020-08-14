@@ -5,5 +5,5 @@ public enum Type {
     empty,
     myTank,
     enemyTank,
-
+    bullet
 }

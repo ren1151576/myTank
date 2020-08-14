@@ -14,6 +14,7 @@ public abstract class BaseObject {
     private int x;  // 地图数组坐标x
     private int y;  // 地图数组坐标y
     private ImageView imageView = new ImageView();
+    private Type type;
 
     public void initElement(Image image,int x, int y) {
 
@@ -30,5 +31,9 @@ public abstract class BaseObject {
         imageView.setX(x * mappingValue);
         imageView.setY(y * mappingValue);
         Game.rootNode.add(imageView);
+        Game.map[x][y] = getType();
+        type = getType();
     };
+
+    protected abstract Type getType();
 }
