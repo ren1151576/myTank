@@ -1,9 +1,11 @@
 package bean.game;
 
+import bean.tank.Tank;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -25,6 +27,7 @@ public class Game extends Application {
         Game.rootNode = pane.getChildren();
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
