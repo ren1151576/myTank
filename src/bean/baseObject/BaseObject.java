@@ -18,13 +18,6 @@ public abstract class BaseObject {
 
     public void initElement(Image image,int x, int y) {
 
-        if (x > Game.map.length || y > Game.map[0].length) {
-
-        }
-
-        if (Game.map[x][y] != Type.empty) {
-        }
-
         this.x = x;
         this.y = y;
         imageView.setImage(image);

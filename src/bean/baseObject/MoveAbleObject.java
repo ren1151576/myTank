@@ -15,18 +15,21 @@ public abstract class MoveAbleObject extends BaseObject {
     }
 
     public void moveDown() {
+
         cleanOld();
         y += moveSpeed;
         setNew();
     }
 
     public void moveLeft() {
+
         cleanOld();
         x -= moveSpeed;
         setNew();
     }
 
     public void moveRight() {
+
         cleanOld();
         x += moveSpeed;
         setNew();

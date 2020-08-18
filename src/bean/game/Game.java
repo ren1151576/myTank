@@ -11,7 +11,11 @@ import javafx.stage.Stage;
 
 public class Game extends Application {
 
-    public static final Type map[][] = new Type[30][30];
+    public static final int weight = 30;
+
+    public static final int height = 30;
+
+    public static final Type map[][] = new Type[weight][height];
 
     public static ObservableList<Node> rootNode;
 
@@ -25,7 +29,7 @@ public class Game extends Application {
     public void start(Stage primaryStage) {
         Pane pane = new Pane();
         primaryStage.setTitle("myGame");
-        scene = new Scene(pane, map[0].length * BaseObject.mappingValue, map.length * BaseObject.mappingValue);
+        scene = new Scene(pane, weight * BaseObject.mappingValue, height * BaseObject.mappingValue);
         Game.rootNode = pane.getChildren();
         primaryStage.setScene(scene);
         primaryStage.show();
