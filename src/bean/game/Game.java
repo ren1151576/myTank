@@ -1,11 +1,11 @@
 package bean.game;
 
-import bean.tank.Tank;
+import bean.baseObject.BaseObject;
+import bean.tank.MyTank;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -15,6 +15,8 @@ public class Game extends Application {
 
     public static ObservableList<Node> rootNode;
 
+    public static Scene scene;
+
     public static void startGame() {
         launch();
     }
@@ -23,10 +25,12 @@ public class Game extends Application {
     public void start(Stage primaryStage) {
         Pane pane = new Pane();
         primaryStage.setTitle("myGame");
-        Scene scene = new Scene(pane, 1000, 600);
+        scene = new Scene(pane, map[0].length * BaseObject.mappingValue, map.length * BaseObject.mappingValue);
         Game.rootNode = pane.getChildren();
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        new MyTank();
 
     }
 

@@ -5,7 +5,7 @@ import bean.game.Type;
 
 public class Bullet extends BaseObject {
     @Override
-    protected Type getType() {
+    protected Type setType() {
         return Type.bullet;
     }
 }
