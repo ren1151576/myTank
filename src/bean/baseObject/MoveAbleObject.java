@@ -8,6 +8,7 @@ public abstract class MoveAbleObject extends BaseObject {
     protected int moveSpeed = 1;
 
     public void moveUp() {
+
         cleanOld();
         y -= moveSpeed;
         setNew();
