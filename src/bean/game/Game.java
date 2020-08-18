@@ -1,6 +1,7 @@
 package bean.game;
 
 import bean.baseObject.BaseObject;
+import bean.baseObject.Iron;
 import bean.tank.MyTank;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -13,7 +14,7 @@ public class Game extends Application {
 
     public static final int weight = 30;
 
-    public static final int height = 30;
+    public static final int height = 15;
 
     public static final Type map[][] = new Type[weight][height];
 
@@ -33,6 +34,17 @@ public class Game extends Application {
         Game.rootNode = pane.getChildren();
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        // 初始化地图边界
+        for (int i = 0; i < weight; i++) {
+            new Iron(i, 0);
+            new Iron(i, height - 1);
+        }
+
+        for (int i = 1; i < height - 1; i++) {
+            new Iron(0, i);
+            new Iron(weight - 1, i);
+        }
 
         new MyTank();
 
