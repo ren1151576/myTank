@@ -5,33 +5,40 @@ import bean.game.Type;
 
 public abstract class MoveAbleObject extends BaseObject {
 
-    protected int moveSpeed = 1;
-
     public void moveUp() {
 
-        cleanOld();
-        y -= moveSpeed;
+        if (Game.map[x][--y] != Type.empty) {
+            y++;
+            return;
+        }
         setNew();
     }
 
     public void moveDown() {
 
-        cleanOld();
-        y += moveSpeed;
+        if (Game.map[x][++y] != Type.empty) {
+            y--;
+            return;
+        }
         setNew();
     }
 
     public void moveLeft() {
 
-        cleanOld();
-        x -= moveSpeed;
+        if (Game.map[--x][y] != Type.empty) {
+            x++;
+            return;
+        }
+
         setNew();
     }
 
     public void moveRight() {
 
-        cleanOld();
-        x += moveSpeed;
+        if (Game.map[++x][y] != Type.empty) {
+            x--;
+            return;
+        }
         setNew();
     }
 
@@ -41,6 +48,7 @@ public abstract class MoveAbleObject extends BaseObject {
     }
 
     private void setNew() {
+        cleanOld();
         Game.map[x][y] = type;
         imageView.setX(x * mappingValue);
         imageView.setY(y * mappingValue);

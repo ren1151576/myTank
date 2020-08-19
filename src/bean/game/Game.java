@@ -35,6 +35,12 @@ public class Game extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        for (int i = 0; i < weight; i ++) {
+            for (int j = 0; j < height; j ++) {
+                map[i][j] = Type.empty;
+            }
+        }
+
         // 初始化地图边界
         for (int i = 0; i < weight; i++) {
             new Iron(i, 0);
