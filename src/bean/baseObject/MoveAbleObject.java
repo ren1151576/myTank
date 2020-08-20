@@ -1,7 +1,6 @@
 package bean.baseObject;
 
 import bean.game.Game;
-import bean.game.Type;
 
 public abstract class MoveAbleObject extends BaseObject {
 

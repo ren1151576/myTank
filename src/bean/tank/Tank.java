@@ -2,25 +2,17 @@ package bean.tank;
 
 import bean.baseObject.MoveAbleObject;
 import bean.bullet.Bullet;
+import bean.game.Direction;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
 public abstract class Tank extends MoveAbleObject {
-
-    private Bullet bullet;
 
     protected Direction direction;
 
     public Tank(Image image, int x, int y, Direction direction) {
         this.direction = direction;
         initElement(image, x, y);
-    }
-
-    protected enum Direction {
-        up,
-        down,
-        left,
-        right
     }
 
     protected void move(KeyCode code) {
@@ -60,5 +52,9 @@ public abstract class Tank extends MoveAbleObject {
             default:
                 System.err.println(code.getName() + "未配置");
         }
+    }
+
+    public void fire() {
+        new Bullet(direction,x,y);
     }
 }
