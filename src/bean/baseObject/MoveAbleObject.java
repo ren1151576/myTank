@@ -6,44 +6,52 @@ public abstract class MoveAbleObject extends BaseObject {
 
     public void moveUp() {
 
-        if (Game.map[x][--y] != null) {
-            y++;
+        if (Game.map[x][y - 1] != null) {
             return;
         }
+        cleanOld();
+        y--;
         setNew();
     }
 
     public void moveDown() {
 
-        if (Game.map[x][++y] != null) {
-            y--;
+        if (Game.map[x][y + 1] != null) {
             return;
         }
+        cleanOld();
+        y++;
         setNew();
     }
 
     public void moveLeft() {
 
-        if (Game.map[--x][y] != null) {
-            x++;
+        if (Game.map[x - 1][y] != null) {
             return;
         }
-
+        cleanOld();
+        x--;
         setNew();
     }
 
     public void moveRight() {
 
-        if (Game.map[++x][y] != null) {
-            x--;
+        if (Game.map[x + 1][y] != null) {
             return;
         }
+        cleanOld();
+        x++;
         setNew();
     }
 
 
     private void cleanOld() {
         Game.map[x][y] = null;
+    }
+
+    protected void deleteObj() {
+        cleanOld();
+        Game.rootNode.remove(this.imageView);
     }
 
     private void setNew() {

@@ -2,13 +2,11 @@ package bean.bullet;
 
 import bean.baseObject.MoveAbleObject;
 import bean.game.Direction;
+import bean.game.Game;
 import bean.game.Type;
 import javafx.scene.image.Image;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class Bullet extends MoveAbleObject {
+public class Bullet extends MoveAbleObject implements Runnable {
     @Override
     protected Type setType() {
         return Type.bullet;
@@ -40,32 +38,51 @@ public class Bullet extends MoveAbleObject {
         initElement(image, startX + changeXNum, startY + changeYNum);
         this.direction = direction;
 
-        Timer timer = new Timer();
-        timer.schedule(new MyTask(), 0, 1000);
+        new Thread(this).start();
     }
 
 
-    class MyTask extends TimerTask {
-
-        @Override
-        public void run() {
+    @Override
+    public void run() {
+        while (true) {
             switch (direction) {
                 case up:
+                    if (Game.map[x][y - 1] != null) {
+                        deleteObj();
+                        return;
+                    }
                     moveUp();
                     break;
                 case down:
+                    if (Game.map[x][y + 1] != null) {
+                        deleteObj();
+                        return;
+                    }
                     moveDown();
                     break;
                 case left:
+                    if (Game.map[x - 1][y] != null) {
+                        deleteObj();
+                        return;
+                    }
                     moveLeft();
                     break;
                 case right:
+                    if (Game.map[x + 1][y] != null) {
+                        deleteObj();
+                        return;
+                    }
                     moveRight();
                     break;
                 default:
+                    deleteObj();
+                    return;
             }
-
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 }

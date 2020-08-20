@@ -13,8 +13,12 @@ public abstract class BaseObject {
     public final static int mappingValue = 60;  // 像素与地图数字映射值
     protected int x;  // 地图数组坐标x
     protected int y;  // 地图数组坐标y
-    protected final ImageView imageView = new ImageView();
+    protected final ImageView imageView;
     public Type type;
+
+    public BaseObject() {
+        imageView = new ImageView();
+    }
 
     public void initElement(Image image,int x, int y) {
 
