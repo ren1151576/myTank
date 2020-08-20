@@ -5,7 +5,10 @@ import bean.game.Direction;
 import bean.game.Type;
 import javafx.scene.image.Image;
 
-public class Bullet extends MoveAbleObject implements Runnable {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Bullet extends MoveAbleObject {
     @Override
     protected Type setType() {
         return Type.bullet;
@@ -37,13 +40,15 @@ public class Bullet extends MoveAbleObject implements Runnable {
         initElement(image, startX + changeXNum, startY + changeYNum);
         this.direction = direction;
 
-        new Thread(this).start();
+        Timer timer = new Timer();
+        timer.schedule(new MyTask(), 0, 1000);
     }
 
-    @Override
-    public void run() {
 
-        while (true) {
+    class MyTask extends TimerTask {
+
+        @Override
+        public void run() {
             switch (direction) {
                 case up:
                     moveUp();
@@ -59,11 +64,7 @@ public class Bullet extends MoveAbleObject implements Runnable {
                     break;
                 default:
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
 
     }
