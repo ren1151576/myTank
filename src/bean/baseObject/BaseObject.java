@@ -25,7 +25,7 @@ public abstract class BaseObject {
         imageView.setY(y * mappingValue);
         Game.rootNode.add(imageView);
         type = setType();
-        Game.map[x][y] = type;
+        Game.map[x][y] = this;
 
     }
 

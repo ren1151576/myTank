@@ -7,9 +7,7 @@ import javafx.scene.image.Image;
 public final class MyTank extends Tank {
     public MyTank() {
         super(new Image("FIle:image/自己.png"), 1, 1, Direction.up);
-        Game.scene.setOnKeyPressed(event -> {
-            move(event.getCode());
-        });
+        Game.scene.setOnKeyPressed(event -> move(event.getCode()));
     }
 
     @Override

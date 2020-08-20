@@ -16,7 +16,7 @@ public class Game extends Application {
 
     public static final int height = 15;
 
-    public static final Type map[][] = new Type[weight][height];
+    public static final BaseObject map[][] = new BaseObject[weight][height];
 
     public static ObservableList<Node> rootNode;
 
@@ -34,12 +34,6 @@ public class Game extends Application {
         Game.rootNode = pane.getChildren();
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        for (int i = 0; i < weight; i ++) {
-            for (int j = 0; j < height; j ++) {
-                map[i][j] = Type.empty;
-            }
-        }
 
         // 初始化地图边界
         for (int i = 0; i < weight; i++) {

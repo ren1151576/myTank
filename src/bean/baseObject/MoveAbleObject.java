@@ -7,7 +7,7 @@ public abstract class MoveAbleObject extends BaseObject {
 
     public void moveUp() {
 
-        if (Game.map[x][--y] != Type.empty) {
+        if (Game.map[x][--y] != null) {
             y++;
             return;
         }
@@ -16,7 +16,7 @@ public abstract class MoveAbleObject extends BaseObject {
 
     public void moveDown() {
 
-        if (Game.map[x][++y] != Type.empty) {
+        if (Game.map[x][++y] != null) {
             y--;
             return;
         }
@@ -25,7 +25,7 @@ public abstract class MoveAbleObject extends BaseObject {
 
     public void moveLeft() {
 
-        if (Game.map[--x][y] != Type.empty) {
+        if (Game.map[--x][y] != null) {
             x++;
             return;
         }
@@ -35,7 +35,7 @@ public abstract class MoveAbleObject extends BaseObject {
 
     public void moveRight() {
 
-        if (Game.map[++x][y] != Type.empty) {
+        if (Game.map[++x][y] != null) {
             x--;
             return;
         }
@@ -44,12 +44,12 @@ public abstract class MoveAbleObject extends BaseObject {
 
 
     private void cleanOld() {
-        Game.map[x][y] = Type.empty;
+        Game.map[x][y] = null;
     }
 
     private void setNew() {
         cleanOld();
-        Game.map[x][y] = type;
+        Game.map[x][y] = this;
         imageView.setX(x * mappingValue);
         imageView.setY(y * mappingValue);
     }
