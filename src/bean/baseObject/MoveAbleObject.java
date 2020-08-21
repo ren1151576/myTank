@@ -1,6 +1,7 @@
 package bean.baseObject;
 
 import bean.game.Game;
+import javafx.application.Platform;
 
 public abstract class MoveAbleObject extends BaseObject {
 
@@ -51,7 +52,8 @@ public abstract class MoveAbleObject extends BaseObject {
 
     protected void deleteObj() {
         cleanOld();
-        Game.rootNode.remove(this.imageView);
+        Platform.runLater(() -> Game.rootNode.remove(imageView));
+
     }
 
     private void setNew() {
