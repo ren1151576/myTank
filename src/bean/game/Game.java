@@ -2,6 +2,7 @@ package bean.game;
 
 import bean.baseObject.BaseObject;
 import bean.baseObject.Iron;
+import bean.tank.EnemyTank;
 import bean.tank.MyTank;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -47,7 +48,7 @@ public class Game extends Application {
         }
 
         new MyTank();
-
+        new EnemyTank();
     }
 
     public static void main(String[] args) {

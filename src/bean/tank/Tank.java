@@ -3,6 +3,8 @@ package bean.tank;
 import bean.baseObject.MoveAbleObject;
 import bean.bullet.Bullet;
 import bean.game.Direction;
+import bean.game.Game;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
@@ -55,6 +57,6 @@ public abstract class Tank extends MoveAbleObject {
     }
 
     public void fire() {
-        new Bullet(direction,x,y);
+        Platform.runLater(() -> new Bullet(direction,x,y));
     }
 }

@@ -45,21 +45,11 @@ public abstract class MoveAbleObject extends BaseObject {
         setNew();
     }
 
-
-    private void cleanOld() {
-        Game.map[x][y] = null;
-    }
-
-    protected void deleteObj() {
-        cleanOld();
-        Platform.runLater(() -> Game.rootNode.remove(imageView));
-
-    }
-
     private void setNew() {
         cleanOld();
         Game.map[x][y] = this;
         imageView.setX(x * mappingValue);
         imageView.setY(y * mappingValue);
     }
+
 }

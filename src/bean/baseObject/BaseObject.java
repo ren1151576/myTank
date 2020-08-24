@@ -2,6 +2,7 @@ package bean.baseObject;
 
 import bean.game.Game;
 import bean.game.Type;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -34,4 +35,13 @@ public abstract class BaseObject {
     }
 
     protected abstract Type setType();
+
+    protected void cleanOld() {
+        Game.map[x][y] = null;
+    }
+
+    protected void deleteObj() {
+        cleanOld();
+        Platform.runLater(() -> Game.rootNode.remove(imageView));
+    }
 }
