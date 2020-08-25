@@ -1,7 +1,6 @@
 package bean.baseObject;
 
 import bean.game.Game;
-import javafx.application.Platform;
 
 public abstract class MoveAbleObject extends BaseObject {
 

@@ -23,6 +23,14 @@ public abstract class BaseObject {
 
     public void initElement(Image image,int x, int y) {
 
+        if (x > Game.weight || y > Game.height) {
+            return;
+        }
+
+        if (Game.map[x][y] != null) {
+           return;
+        }
+
         this.x = x;
         this.y = y;
         imageView.setImage(image);
